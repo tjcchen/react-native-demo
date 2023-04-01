@@ -8,7 +8,7 @@ Expo: https://github.com/expo
 
 Expo Router: https://expo.github.io/router
 
-## Expo Router Example
+## Expo Router
 
 Use [`expo-router`](https://expo.github.io/router) to build native navigation using files in the `app/` directory.
 
