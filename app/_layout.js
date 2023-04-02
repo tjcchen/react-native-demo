@@ -13,13 +13,14 @@ const Layout = () => {
     DMRegular: require('../assets/fonts/DMSans-Regular.ttf'),
   });
 
+  // Similar to useEffect
   const onLayoutRootView = useCallback(async () => {
     if (fontsLoaded) {
       await SplashScreen.hideAsync();
     }
   }, [fontsLoaded]);
 
-  // Doing nothing when we haven't the load the font
+  // Doing nothing when we haven't had the font loaded
   if (!fontsLoaded) {
     return null;
   }
