@@ -15,7 +15,11 @@ Expo Router: https://expo.github.io/router
 Use [`expo-router`](https://expo.github.io/router) to build native navigation using files in the `app/` directory.
 
 ## Starts with Expo-Router
-
 ```sh
 npx create-react-native-app -t with-router
+```
+
+```sh
+# to reload the app tunnel
+expo-cli start --tunnel
 ```
