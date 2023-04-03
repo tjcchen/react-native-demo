@@ -2,7 +2,9 @@
 Write & public a app with React Native & Expo
 
 ## Links
-rapidapi: https://rapidapi.com
+Rapidapi: https://rapidapi.com
+
+React Native: https://reactnative.dev
 
 Expo: https://github.com/expo
 
