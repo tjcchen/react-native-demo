@@ -23,3 +23,6 @@ npx create-react-native-app -t with-router
 # to reload the app tunnel
 expo-cli start --tunnel
 ```
+
+## Licence
+MIT
