@@ -24,5 +24,17 @@ npx create-react-native-app -t with-router
 expo-cli start --tunnel
 ```
 
+## Publish and Deployment
+```sh
+# step1: make sure you have expo-cli install
+npm install -g expo-cli
+
+# step2: publish
+expo publish
+```
+
+## Preview Page
+link: https://expo.dev/@andychen/react-native-demo?serviceType=classic&distribution=expo-go
+
 ## Licence
 MIT
