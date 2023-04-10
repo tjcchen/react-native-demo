@@ -1,6 +1,6 @@
 /**
  * A dynamic job_id router handler
- * 
+ *
  * Note: shortcut for template - rafce
  */
 import {
@@ -9,30 +9,41 @@ import {
   SafeAreaView,
   ScrollView,
   ActivityIndicator,
-  RefreshControl
-} from 'react-native';
-import { Stack, useRouter, useSearchParams } from 'expo-router';
-import { useCallback, useState, useEffect } from 'react';
+  RefreshControl,
+} from "react-native";
+import { Stack, useRouter, useSearchParams } from "expo-router";
+import { useCallback, useState, useEffect } from "react";
 
-import { Company, JobAbout, JobFooter, JobTabs, ScreenHeaderBtn, Specifics } from '../../components';
-import { COLORS, icons, SIZES } from '../../constants';
-import useFetch from '../../hook/useFetch';
+import {
+  Company,
+  JobAbout,
+  JobFooter,
+  JobTabs,
+  ScreenHeaderBtn,
+  Specifics,
+} from "../../components";
+import { COLORS, icons, SIZES } from "../../constants";
+import useFetch from "../../hook/useFetch";
 
-const tabs = ['About', 'Qualifications', 'Responsibilities'];
+const tabs = ["About", "Qualifications", "Responsibilities"];
 
 const JobDetails = () => {
   const params = useSearchParams(); // retrieve url params
   const router = useRouter();
 
-  const { data, isLoading, error, refetch } = useFetch(
-    'job-details',
-    { job_id: params.id }
-  );
+  const { data, isLoading, error, refetch } = useFetch("job-details", {
+    job_id: params.id,
+  });
 
   const [refreshing, setRefreshing] = useState(false);
   const [activeTab, setActiveTab] = useState(tabs[0]);
 
-  const onRefresh = () => {};
+  // useCallback is a React Hook that lets you cache a function definition between re-renders.
+  const onRefresh = useCallback(() => {
+    setRefreshing(true);
+    refetch();
+    setRefreshing(false);
+  }, []);
 
   // ?? question mark
   // Javascript double question mark is a logical operator that takes two values
@@ -41,32 +52,36 @@ const JobDetails = () => {
   const displayTabContent = () => {
     switch (activeTab) {
       case "Qualifications":
-        return <Specifics
+        return (
+          <Specifics
             title="Qualifications"
-            points={data[0].job_highlights?.Qualifications ?? ['N/A']}
-          />;
+            points={data[0].job_highlights?.Qualifications ?? ["N/A"]}
+          />
+        );
       case "About":
-        return <JobAbout
-          info={data[0].job_description ?? 'No data provided'}
-        />;
+        return (
+          <JobAbout info={data[0].job_description ?? "No data provided"} />
+        );
       case "Responsibilities":
-        return <Specifics
-          title="Responsibilities"
-          points={data[0].job_highlights?.Responsibilities ?? ['N/A']}
-        />
+        return (
+          <Specifics
+            title="Responsibilities"
+            points={data[0].job_highlights?.Responsibilities ?? ["N/A"]}
+          />
+        );
       default:
         break;
     }
   };
 
-  console.log('job detail page', data);
+  console.log("job detail page", data);
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.lightWhite }}>
       <Stack.Screen
         options={{
           headerStyle: {
-            backgroundColor: COLORS.lightWhite
+            backgroundColor: COLORS.lightWhite,
           },
           headerShadowVisible: false,
           headerBackVisible: false,
@@ -78,12 +93,9 @@ const JobDetails = () => {
             />
           ),
           headerRight: () => (
-            <ScreenHeaderBtn
-              iconUrl={icons.share}
-              dimension="60%"
-            />
+            <ScreenHeaderBtn iconUrl={icons.share} dimension="60%" />
           ),
-          headerTitle: ''
+          headerTitle: "",
         }}
       ></Stack.Screen>
 
@@ -119,11 +131,14 @@ const JobDetails = () => {
         </ScrollView>
 
         <JobFooter
-          url={data[0]?.job_google_link ?? 'https://careers.google.com/jobs/results'}
+          url={
+            data[0]?.job_google_link ??
+            "https://careers.google.com/jobs/results"
+          }
         />
       </>
     </SafeAreaView>
-  )
-}
+  );
+};
 
 export default JobDetails;
