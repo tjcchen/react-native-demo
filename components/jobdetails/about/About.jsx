@@ -13,6 +13,6 @@ const About = ({ info }) => {
       </View>
     </View>
   )
-}
+};
 
 export default About;
