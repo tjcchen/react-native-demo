@@ -18,6 +18,12 @@ const Welcome = ({ searchTerm, setSearchTerm, handleClick }) => {
   const router = useRouter();
   const [activeJobType, setActiveJobType] = useState('Full-time');
 
+  // fix
+  // solution1:
+  // onChange={(e) => {console.log(e?.nativeEvent?.text); setSearchTerm(e?.nativeEvent?.text)}}
+  // solution2:
+  // onChangeText={setSearchTerm}
+
   return (
     <View>
       <View style={styles.container}>
@@ -30,7 +36,7 @@ const Welcome = ({ searchTerm, setSearchTerm, handleClick }) => {
           <TextInput
             style={styles.searchInput}
             value={searchTerm}
-            onChange={(text) => {console.log(text); setSearchTerm(text);}}
+            onChangeText={setSearchTerm}
             placeholder="What job are you looking for?"
           />
         </View>
