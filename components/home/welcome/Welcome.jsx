@@ -21,7 +21,7 @@ const Welcome = ({ searchTerm, setSearchTerm, handleClick }) => {
   // fix
   // solution1:
   // onChange={(e) => {console.log(e?.nativeEvent?.text); setSearchTerm(e?.nativeEvent?.text)}}
-  // solution2:
+  // solution2( use this approach ):
   // onChangeText={setSearchTerm}
 
   return (
