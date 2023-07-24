@@ -5,6 +5,14 @@
       "bundler": "metro"
     },
     "name": "react-native-demo",
-    "slug": "react-native-demo"
+    "slug": "react-native-demo",
+    "extra": {
+      "eas": {
+        "projectId": "f7a30457-7195-4721-b417-3f1e9e41fc88"
+      }
+    },
+    "android": {
+      "package": "com.andychen.reactnativedemo"
+    }
   }
 }
