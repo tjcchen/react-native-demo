@@ -1,18 +1,29 @@
-import { useState } from 'react';
-import { View, Text, ScrollView, SafeAreaView } from 'react-native';
-import { Link, Stack, useRouter } from 'expo-router';
+import { useState } from "react";
+import { View, Text, ScrollView, SafeAreaView } from "react-native";
+import { Link, Stack, useRouter } from "expo-router";
 
-import { images, icons, COLORS, FONT, SIZES } from '../constants';
-import { Nearbyjobs, Popularjobs, ScreenHeaderBtn, Welcome } from '../components';
+import { images, icons, COLORS, FONT, SIZES } from "../constants";
+import {
+  Nearbyjobs,
+  Popularjobs,
+  ScreenHeaderBtn,
+  Welcome,
+  PrivacyOverlay,
+} from "../components";
+import useEffectOnce from "../hook/useEffectOnce";
 
 const Home = () => {
   const router = useRouter();
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm, setSearchTerm] = useState("");
+
+  useEffectOnce(() => {
+    console.log("222");
+  });
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.lightWhite }}>
       <Stack.Screen
-        options={{ 
+        options={{
           headerStyle: { backgroundColor: COLORS.lightWhite },
           headerShadowVisible: false,
           headerLeft: () => (
@@ -40,6 +51,9 @@ const Home = () => {
           <Nearbyjobs />
         </View>
       </ScrollView>
+
+      {/* Privacy Overlay */}
+      <PrivacyOverlay />
     </SafeAreaView>
   );
 };
