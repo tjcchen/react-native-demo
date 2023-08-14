@@ -2,7 +2,7 @@ import {
   StyleSheet
 } from "react-native";
 import {
-  SIZES
+  SIZES, FONT
 } from "../../../constants";
 
 const styles = StyleSheet.create({
@@ -15,35 +15,42 @@ const styles = StyleSheet.create({
     zIndex: 1001,
     width: "100%",
     height: "100%",
-    fontFamily: "DMRegular",
+    fontFamily: "DMRegular"
   },
   inner: {
     marginTop: "20%",
     marginBottom: "20%",
-    marginLeft: "10%",
-    marginRight: "10%",
-    width: "80%",
+    marginLeft: "6%",
+    marginRight: "6%",
+    width: "88%",
     height: "80%",
     backgroundColor: "#fff",
     borderRadius: "9px",
-    display: "flex"
+    display: "flex",
+    borderColor: "#ccc",
+    borderWidth: 1,
+    overflow: "hidden",
   },
   header: {
     height: "10%",
     lineHeight: "10%",
     width: "100%",
     textAlign: "center",
-    borderBottomColor: '#ccc',
+    borderBottomColor: "#ccc",
     borderBottomWidth: 1,
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
+    backgroundColor: "rgb(250, 250, 252)",
+    fontFamily: FONT.bold,
+    fontWeight: "700"
   },
   headerText: {
     fontSize: SIZES.large,
   },
   scrollView: {
-    flex: 1
+    flex: 1,
+    padding: 10
   },
   btnGroup: {
     height: "10%",
@@ -57,7 +64,9 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     backgroundColor: "rgb(255, 119, 84)",
-    borderBottomLeftRadius: "9px"
+    borderBottomLeftRadius: "9px",
+    fontFamily: FONT.bold,
+    fontWeight: "700"
   },
   btnConfirm: {
     flex: "1",
@@ -65,7 +74,9 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     backgroundColor: "rgb(144, 238, 144)",
-    borderBottomRightRadius: "9px"
+    borderBottomRightRadius: "9px",
+    fontFamily: FONT.bold,
+    fontWeight: "700"
   }
 });
 
